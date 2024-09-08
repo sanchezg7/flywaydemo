@@ -1,5 +1,12 @@
+buildscript {
+    dependencies {
+        classpath 'com.h2database:h2:2.2.224'
+    }
+}
+
 plugins {
     id 'java'
+    id "org.flywaydb.flyway" version "10.0.0"
 }
 
 group = 'org.example'
@@ -16,4 +23,9 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+flyway {
+    url = 'jdbc:h2:file:./target/foobar'
+    user = 'sa'
 }
